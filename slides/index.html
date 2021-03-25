@@ -1,0 +1,187 @@
+<!doctype html>
+<style>
+	.container{
+		display: flex;
+	}
+	.col{
+		flex: 1;
+	}
+	</style>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Python Intro - H2AMP 2021</title>
+		<meta name="author" content="Paola Arce">
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2 class="r-fit-text" >Introduction to Python</h2>
+					<h2 style="color:rgba(255,211,67,1.00);" class="r-fit-text">H2 Advanced Maths and Programming 2021</h2>
+					<p>Paola Arce</p>
+					<div class="r-hstack">
+						<img class="plain" src="img/python.png" style="padding: 1.00em; margin: 0.2em; height: 120px;">
+						<img class="plain" src="img/SAMS.png" style="padding: 1.00em; margin: 0.2em; height: 50px;">
+					</div>
+					
+				</section>
+				<section data-auto-animate data-auto-animate-unmatched="fade">
+					<h2>Why Python?</h2>
+					<div class="v-hstack">
+						<p style="padding: 0.5em; margin: 0.1em">Open Source and Free</p>
+						<p style="padding: 0.5em; margin: 0.1em">Easy to learn
+							<pre><code class="python" data-trim data-noescape>
+								#!/usr/bin/python
+								latitude = 56.5
+								if abs(latitude) < 23.5:
+									print('Tropical')
+								elif abs(latitude) > 66.5:
+									print('Polar')
+								else:
+									print('Mid-latitude’)
+								</code></pre></p>
+					</div>
+				</section>
+				<section>
+					<h2>Python vs Matlab syntax</h2>
+					<div class="container">
+						<div class="col">
+						Python
+						<pre><code class="python" data-trim data-noescape>
+							# This is a comment
+							latitude = 56.5
+							if abs(latitude) < 23.5:
+								print('Tropical')
+							elif abs(latitude) > 66.5:
+								print('Polar')
+							else:
+								print('Mid-latitude')
+							</code></pre>
+						</div>
+						
+						<div class="col">
+						Matlab
+						<pre><code class="Matlab" data-trim data-noescape>
+							% This is a comment
+							latitude = 56.5;
+							if abs(latitude) < 23.5
+								disp('Tropical');
+							elseif abs(latitude) > 66.5
+								disp('Polar');
+							else
+								disp('Mid-latitude');
+							end
+							</code></pre>
+						</div>
+						
+						</div>
+				</section>
+				<section>
+					<h2>A simple function</h2>
+					Let's calculate the circumference and area of a circle
+					\[\begin{aligned}
+					C  &amp; = 2 \pi r \\
+					A &amp; = \pi r^2
+					\end{aligned}\]
+					<pre class="fragment fade-in" data-fragment-index="1"><code class="python" data-trim data-noescape>
+						#!/usr/bin/python
+						import numpy as np
+
+						def circle_info(r):
+							# Get circumference and area of a circle
+							C = 2 * np.pi * r
+							A = np.pi * r ** 2
+							return C, A
+
+						print(circle_info(2))
+						</code></pre>
+						<pre class="fragment fade-in" data-fragment-index="2"><code class="bash" data-trim data-noescape>
+							$ python main.py
+							</code></pre>
+				</section>
+				<section>
+					<h2>Live example</h2>
+					<p>Please visit <a href="https://codecollab.io/@parce/H2AMP2021">https://codecollab.io/@parce/H2AMP2021</a> and choose a username or leave it blank for a random name</p>
+				</section>
+				<section>
+					<h2>Loops</h2>
+					<p style="font-size: 70%;" class="fragment fade-in">While loops can execute a set of statements as long as a condition is true</p>
+					<pre class="fragment fade-in"><code class="python" data-trim data-noescape>
+						a = 0
+						while a < 10:
+							print("a is not greater than 10 yet, a=%s" % a )
+							a = a + 1
+						else:
+							print("The value of a is now", a)
+						</code></pre>
+						<p style="font-size: 70%;" class="fragment fade-in">A for loop is used for iterating over a sequence</p>
+						<pre class="fragment fade-in"><code class="python" data-trim data-noescape>
+						phrase = ['Mary', 'had', 'a', 'little', 'lamb']
+						for word in phrase:
+							print word	
+						</code>
+				</section>
+				<section>
+					<h2>Exercise</h2>
+					<p>Write a python script that determine the climate zone of the following latitudes: -89, 0, 75, 20, -25, -60. Use functions, loops and conditional statements.					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				plugins: [ RevealMath ]
+			});
+		</script>
+		
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
