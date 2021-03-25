@@ -17,3 +17,9 @@ pip install jupyterlab
 pip install pandas numpy 
 pip install motu-client 
 ```
+
+## Q&A session
+
+Slides are here:
+
+https://mapsa.github.io/H2AMP2021/
